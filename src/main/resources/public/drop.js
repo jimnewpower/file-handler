@@ -34,12 +34,21 @@ function dropHandler(ev) {
 
 async function upload(file) {
     console.log("Uploading file: " + file.name);
-    const response = await fetch('/upload', {
+
+    const formData = new FormData();
+    formData.append('file', file);
+
+    await fetch('/upload', {
         method: 'POST',
-        body: file
-    });
-    const data = await response.json();
-    console.log(data);
+        body: formData
+    })
+        .then(response => response.json())
+        .then(result => {
+            console.log('Success:', result);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
 }
 
 function fileSize(size) {
