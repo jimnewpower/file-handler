@@ -45,6 +45,17 @@ async function upload(file) {
         .then(response => response.json())
         .then(result => {
             console.log('Success:', result);
+
+            let data = JSON.parse(JSON.stringify(result));
+            let message = data.message;
+            let filename = data.filename;
+            let type = data.mimeType;
+
+            let html = '<p>Message: ' + message + '<br>';
+            html += 'Filename: ' + filename + '<br>';
+            html += 'Detected Type: ' + type + '</p>';
+            document.getElementById("drop_zone").innerHTML = html;
+
         })
         .catch(error => {
             console.error('Error:', error);
