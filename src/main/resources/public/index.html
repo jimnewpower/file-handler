@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+      #drop_zone {
+        border: 1px dashed lightslategrey;
+        width: 600px;
+        height: 120px;
+        padding: 8px;
+      }
+    </style>
+    <script type="text/javascript" src="drag.js"></script>
+    <script type="text/javascript" src="drop.js"></script>
+</head>
+<body>
+
+<div id="drop_zone" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">
+  <p>Drag one or more files to this <i>drop zone</i>.</p>
+</div>
+
+</body>
+</html>
